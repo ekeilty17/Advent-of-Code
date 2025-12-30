@@ -55,12 +55,12 @@ Additionally, in there is `utils/test.py` which is used to test the example inpu
 - [x] Day 14
 - [x] Day 15
 - [x] Day 16
-- [ ] Day 17
+- [x] Day 17
 - [x] Day 18
-- [ ] Day 19
+- [x] Day 19
 - [x] Day 20
-- [ ] Day 21
-- [ ] Day 22
-- [ ] Day 23
-- [ ] Day 24
-- [ ] Day 25
+- [ ] Day 21 (part 1 complete)
+- [x] Day 22
+- [x] Day 23
+- [ ] Day 24 (part 1 complete)
+- [ ] Day 25 (part 1 complete)
