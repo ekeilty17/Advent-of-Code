@@ -39,15 +39,15 @@ Each `Day_X` folder has the following files
 Additionally, in there is `utils/test.py` which is used to test the example input.
 
 ## Solution Checklist
-- [x] Day 1
-- [x] Day 2
-- [x] Day 3
-- [x] Day 4
-- [x] Day 5
-- [x] Day 6
-- [x] Day 7
-- [x] Day 8
-- [x] Day 9
-- [x] Day 10
-- [x] Day 11
-- [ ] Day 12
+- [x] [Day 1](https://adventofcode.com/2025/day/1)
+- [x] [Day 2](https://adventofcode.com/2025/day/2)
+- [x] [Day 3](https://adventofcode.com/2025/day/3)
+- [x] [Day 4](https://adventofcode.com/2025/day/4)
+- [x] [Day 5](https://adventofcode.com/2025/day/5)
+- [x] [Day 6](https://adventofcode.com/2025/day/6)
+- [x] [Day 7](https://adventofcode.com/2025/day/7)
+- [x] [Day 8](https://adventofcode.com/2025/day/8)
+- [x] [Day 9](https://adventofcode.com/2025/day/9)
+- [x] [Day 10](https://adventofcode.com/2025/day/10)
+- [x] [Day 11](https://adventofcode.com/2025/day/11)
+- [ ] [Day 12](https://adventofcode.com/2025/day/12)
