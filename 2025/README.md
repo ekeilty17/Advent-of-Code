@@ -27,7 +27,7 @@ where `XX` is the the two digit day number (e.g. use `01` instead of `1`) and `Y
 
 ## Structure of Day_X Code
 
-Each `Day_X` folder has the following files
+Each `Day_XX` folder has the following files
 - `const.py` - configuration constants
 - `example_input.txt` - example input
 - `input.txt` - challenge input
@@ -36,7 +36,7 @@ Each `Day_X` folder has the following files
 - `part_2.py` - solution to part 2
 - `README.md` - explanation of solutions
 
-Additionally, in there is `utils/test.py` which is used to test the example input.
+Additionally, in there is `utils/` which contains some helpful code.
 
 ## Solution Checklist
 - [x] [Day 1](https://adventofcode.com/2025/day/1)

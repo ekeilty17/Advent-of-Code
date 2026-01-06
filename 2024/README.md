@@ -4,12 +4,6 @@ This is my [Advent of Code 2024](https://adventofcode.com/2024) repository. I wi
 
 ## How to Run
 
-```
-pip install -r requirements.txt
-```
-
-I try my best not to use outside packages, but I didn't feel like implementing integer programming, for example.
-
 All code is designed to be run at root of each year. In this case, inside the top level of `2024/`. Each day has `part_1.py` and `part_2.py`. For example,
 
 ```
@@ -27,7 +21,7 @@ where `XX` is the the two digit day number (e.g. use `01` instead of `1`) and `Y
 
 ## Structure of Day_X Code
 
-Each `Day_X` folder has the following files
+Each `Day_XX` folder has the following files
 - `const.py` - configuration constants
 - `example_input.txt` - example input
 - `input.txt` - challenge input
@@ -36,7 +30,7 @@ Each `Day_X` folder has the following files
 - `part_2.py` - solution to part 2
 - `README.md` - explanation of solutions
 
-Additionally, in there is `utils/test.py` which is used to test the example input.
+Additionally, in there is `utils/` which contains some helpful code.
 
 ## Solution Checklist
 - [x] [Day 1](https://adventofcode.com/2024/day/1)
