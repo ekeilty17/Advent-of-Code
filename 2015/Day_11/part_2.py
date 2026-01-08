@@ -1,8 +1,6 @@
 from Day_11.part_1 import solution
+from utils.solve import solve
 
 if __name__ == "__main__":
-
     password = "hepxxyzz"
-
-    total = solution(password)
-    print("Puzzle Answer:", total)
+    solve(solution, password)

@@ -1,4 +1,4 @@
-from utils.test import test
+from utils.solve import test, solve
 
 def look_and_say_step(seed: str) -> str:
     if len(seed) == 1:
@@ -26,14 +26,11 @@ def solution(seed: str, N: int) -> int:
     return len(num)
 
 if __name__ == "__main__":
-    
     example_seed = "1"
-    seed = "1321131112"
-
     example_N = 5
     expected_answer = len("312211")
     test(expected_answer, solution, example_seed, example_N)
 
+    seed = "1321131112"
     N = 40
-    total = solution(seed, N)
-    print("Puzzle Answer:", total)
+    solve(solution, seed, N)

@@ -3,6 +3,7 @@ from typing import Optional
 
 from Day_01.const import DAY, INPUT_FILE_NAME
 from Day_01.load_input import load_input
+from utils.solve import solve
 
 def solution(floor_instructions: str) -> Optional[int]:
     floor = 0
@@ -14,8 +15,5 @@ def solution(floor_instructions: str) -> Optional[int]:
     return None
 
 if __name__ == "__main__":
-    
     floor_instructions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
-    total = solution(floor_instructions)
-    print("Puzzle Answer:", total)
+    solve(solution, floor_instructions)

@@ -49,16 +49,17 @@ Additionally, in there is `utils/` which contains some helpful code.
 - [x] [Day 14](https://adventofcode.com/2015/day/14)
 - [x] [Day 15](https://adventofcode.com/2015/day/15)
 - [x] [Day 16](https://adventofcode.com/2015/day/16)
-- [ ] [Day 17](https://adventofcode.com/2015/day/17)
-- [ ] [Day 18](https://adventofcode.com/2015/day/18)
-- [ ] [Day 19](https://adventofcode.com/2015/day/19)
-- [ ] [Day 20](https://adventofcode.com/2015/day/20)
+- [x] [Day 17](https://adventofcode.com/2015/day/17)
+- [x] [Day 18](https://adventofcode.com/2015/day/18)
+- [ ] [Day 19](https://adventofcode.com/2015/day/19) (part 1 complete)
+- [x] [Day 20](https://adventofcode.com/2015/day/20)
 - [ ] [Day 21](https://adventofcode.com/2015/day/21)
 - [ ] [Day 22](https://adventofcode.com/2015/day/22)
-- [ ] [Day 23](https://adventofcode.com/2015/day/23)
+- [x] [Day 23](https://adventofcode.com/2015/day/23)
 - [ ] [Day 24](https://adventofcode.com/2015/day/24)
-- [ ] [Day 25](https://adventofcode.com/2015/day/25)
+- [ ] [Day 25](https://adventofcode.com/2015/day/25) (part 1 complete)
 
 ### Problems to Look at Again
 - **Day 10**: There should be a dynamic-programming style argument, since Look-and-Say numbers are recursive
 - **Day 15**: There should be some interesting optimization techniques to limit the search space using the contraints. 
+- **Day 20**: There should be a better version of the Sieve of Eratosthenes that solves this problem

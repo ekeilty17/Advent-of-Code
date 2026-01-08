@@ -1,5 +1,5 @@
 from typing import List
-from utils.test import test
+from utils.solve import test, solve
 
 ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 BLACKLIST = "iol"
@@ -57,12 +57,9 @@ def solution(password: str) -> str:
     return "".join([ALPHABET[n] for n in numeric_password])
 
 if __name__ == "__main__":
-    
     example_password = "ghijklmn"
-    password = "hepxcrrq"
-
     expected_answer = "ghjaabcc"
     test(expected_answer, solution, example_password)
 
-    total = solution(password)
-    print("Puzzle Answer:", total)
+    password = "hepxcrrq"
+    solve(solution, password)

@@ -4,7 +4,7 @@ from typing import List
 from Day_05.const import DAY, INPUT_FILE_NAME
 from Day_05.const import EXAMPLE_INPUT_FILE_NAME_PART_1 as EXAMPLE_INPUT_FILE_NAME
 from Day_05.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def is_nice(line: str) -> bool:
     
@@ -27,12 +27,9 @@ def solution(text_file: List[str]) -> int:
     return count
 
 if __name__ == "__main__":
-    
     example_text_file = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    text_file = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 2
     test(expected_answer, solution, example_text_file)
 
-    total = solution(text_file)
-    print("Puzzle Answer:", total)
+    text_file = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, text_file)

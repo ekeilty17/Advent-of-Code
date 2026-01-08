@@ -3,7 +3,7 @@ from pathlib import Path
 from Day_03.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_03.load_input import load_input
 from Day_03.part_1 import update_position
-from utils.test import test
+from utils.solve import test, solve
 
 def solution(moves: str) -> int:
     santa_pos = (0, 0)
@@ -21,12 +21,9 @@ def solution(moves: str) -> int:
     return len(present_positions)
 
 if __name__ == "__main__":
-    
     example_moves = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    moves = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 3
     test(expected_answer, solution, example_moves)
 
-    total = solution(moves)
-    print("Puzzle Answer:", total)
+    moves = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, moves)

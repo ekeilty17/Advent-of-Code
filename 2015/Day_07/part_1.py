@@ -5,7 +5,7 @@ from collections import deque
 
 from Day_07.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_07.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def parse_gate(gate: str) -> Dict[str, Any]:
     
@@ -120,14 +120,11 @@ def solution(instructions: List[Tuple[str, str]], target_wire: str) -> int:
     return wire_signals[target_wire]
 
 if __name__ == "__main__":
-    
     example_instructions = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    instructions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     example_target_wire = "d"
     expected_answer = 72
     test(expected_answer, solution, example_instructions, example_target_wire)
 
+    instructions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     target_wire = "a"
-    total = solution(instructions, target_wire)
-    print("Puzzle Answer:", total)
+    solve(solution, instructions, target_wire)

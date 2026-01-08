@@ -4,7 +4,7 @@ from itertools import permutations
 
 from Day_09.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_09.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def compute_total_distance(path: List[str], distance_by_city_pairs: Dict[Tuple[str, str], int]):
     total_distance = 0
@@ -22,12 +22,9 @@ def solution(city_distances: List[Tuple[str, str, int]]) -> int:
     return compute_total_distance(min_path, distance_by_city_pairs)
 
 if __name__ == "__main__":
-    
     example_city_distances = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    city_distances = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 605
     test(expected_answer, solution, example_city_distances)
 
-    total = solution(city_distances)
-    print("Puzzle Answer:", total)
+    city_distances = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, city_distances)
