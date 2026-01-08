@@ -3,7 +3,7 @@ from typing import List, Tuple, TypeAlias
 
 from Day_10.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_10.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 IndicatorLights: TypeAlias = List[bool]
 ButtonWiringSchematic: TypeAlias = List[int]
@@ -70,12 +70,9 @@ def solution(machines: List[Tuple[IndicatorLights, List[ButtonWiringSchematic], 
     return sum(min_button_presses)
 
 if __name__ == "__main__":
-    
     example_machines = load_input(Path(f"Day_{DAY}/{EXAMPLE_INPUT_FILE_NAME}"))
-    machines = load_input(Path(f"Day_{DAY}/{INPUT_FILE_NAME}"))
-
     expected_answer = 33
     test(expected_answer, solution, example_machines)
 
-    total = solution(machines)
-    print("Puzzle Answer:", total)
+    machines = load_input(Path(f"Day_{DAY}/{INPUT_FILE_NAME}"))
+    solve(solution, machines)

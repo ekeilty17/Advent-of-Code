@@ -3,7 +3,7 @@ from typing import List
 
 from Day_07.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_07.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def solution(tachyon_manifold: List[List[str]]) -> int:
 
@@ -21,12 +21,9 @@ def solution(tachyon_manifold: List[List[str]]) -> int:
     return number_of_splits
 
 if __name__ == "__main__":
-    
     example_tachyon_manifold = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    tachyon_manifold = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 21
     test(expected_answer, solution, example_tachyon_manifold)
 
-    total = solution(tachyon_manifold)
-    print("Puzzle Answer:", total)
+    tachyon_manifold = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, tachyon_manifold)

@@ -4,7 +4,7 @@ import numpy as np
 
 from Day_09.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_09.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def compute_rectangle_area(coord1: Tuple[int, int], coord2: Tuple[int, int]) -> int:
     x1, y1 = coord1
@@ -25,12 +25,9 @@ def solution(grid_locations: List[Tuple[int, int]]) -> int:
     return max_area
 
 if __name__ == "__main__":
-    
     example_grid_locations = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    grid_locations = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 50
     test(expected_answer, solution, example_grid_locations)
 
-    total = solution(grid_locations)
-    print("Puzzle Answer:", total)
+    grid_locations = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, grid_locations)

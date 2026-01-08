@@ -6,7 +6,7 @@ import heapq
 from Day_08.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_08.load_input import load_input
 from Day_08.part_1 import get_squared_distance, get_manhattan_distance, get_circuit
-from utils.test import test
+from utils.solve import test, solve
 
 BoxCoordinate: TypeAlias = Tuple[int, int, int]
 
@@ -46,12 +46,9 @@ def solution(junction_box_positions: List[BoxCoordinate]) -> int:
 
 
 if __name__ == "__main__":
-    
     example_junction_box_positions = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    junction_box_positions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 25272
     test(expected_answer, solution, example_junction_box_positions)
 
-    total = solution(junction_box_positions)
-    print("Puzzle Answer:", total)
+    junction_box_positions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, junction_box_positions)

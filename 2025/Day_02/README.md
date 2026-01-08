@@ -19,7 +19,7 @@ Brute forcing is medium speed, it's not instant but not very fast either. This e
     -> (123)123123123 == (123)123123123
 ```
 
-This is obviously not very efficient.
+This is obviously not very efficient. This is implemented in `part_2_slow.py`.
 
 ### String Doubling Trick
 

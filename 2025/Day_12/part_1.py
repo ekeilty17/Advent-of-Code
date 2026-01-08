@@ -6,7 +6,7 @@ import hashlib
 
 from Day_12.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_12.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 PresentShape: TypeAlias = NDArray[np.bool_]
 Region: TypeAlias = Tuple[int, int, List[int]]
@@ -150,12 +150,9 @@ def solution(present_shapes: List[PresentShape], regions: List[Region]) -> int:
     return count
 
 if __name__ == "__main__":
-    
     example_present_shapes, example_regions = load_input(Path(f"Day_{DAY}/{EXAMPLE_INPUT_FILE_NAME}"))
-    present_shapes, regions = load_input(Path(f"Day_{DAY}/{INPUT_FILE_NAME}"))
-
     expected_answer = 2
     test(expected_answer, solution, example_present_shapes, example_regions)
 
-    # total = solution(present_shapes, regions)
-    # print("Puzzle Answer:", total)
+    # present_shapes, regions = load_input(Path(f"Day_{DAY}/{INPUT_FILE_NAME}"))
+    # solve(solution, present_shapes, regions)

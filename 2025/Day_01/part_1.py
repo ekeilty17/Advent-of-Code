@@ -3,7 +3,7 @@ from typing import List
 
 from Day_01.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_01.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def apply_rotation(dial_start: int, rotation: int) -> int:
     return (dial_start + rotation) % 100
@@ -22,15 +22,11 @@ def solution(dial_start: int, rotations: List[int]) -> int:
     return count_0
 
 if __name__ == "__main__":
-    
-    example_rotations = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    rotations = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-    
     dial_start = 50
-    
+
+    example_rotations = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     example_answer = 3
     test(example_answer, solution, dial_start, example_rotations)
 
-    dial_start = 50
-    answer = solution(dial_start, rotations)
-    print("Puzzle Answer:", answer)
+    rotations = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, dial_start, rotations)

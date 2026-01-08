@@ -3,8 +3,7 @@ from typing import List, Tuple
 
 from Day_02.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_02.load_input import load_input
-from utils.test import test
-
+from utils.solve import test, solve
 
 def is_invalid_product_id(product_id: int) -> bool:
     prod_str = str(product_id)
@@ -30,10 +29,8 @@ def solution(product_id_ranges: List[Tuple[int, int]]) -> int:
 
 if __name__ == "__main__":
     example_product_id_ranges = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    product_id_ranges = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     example_answer = 1227775554
     test(example_answer, solution, example_product_id_ranges)
 
-    total = solution(product_id_ranges)
-    print("Puzzle Answer:", total)
+    product_id_ranges = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, product_id_ranges)

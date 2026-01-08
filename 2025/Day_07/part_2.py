@@ -5,7 +5,7 @@ from Day_07.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_07.load_input import load_input
 from Day_07.binary_tree import BinaryTree
 from Day_07.convert_tachyon_manifold_to_binary_tree import convert_tachyon_manifold_to_binary_tree
-from utils.test import test
+from utils.solve import test, solve
 
 def count_paths(node):
     # base case
@@ -32,12 +32,9 @@ def solution(tachyon_manifold: List[List[str]]) -> int:
     return num_paths
 
 if __name__ == "__main__":
-    
     example_tachyon_manifold = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    tachyon_manifold = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 40
     test(expected_answer, solution, example_tachyon_manifold)
 
-    total = solution(tachyon_manifold)
-    print("Puzzle Answer:", total)
+    tachyon_manifold = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, tachyon_manifold)

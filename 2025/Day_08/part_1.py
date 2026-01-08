@@ -5,7 +5,7 @@ import heapq
 
 from Day_08.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_08.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 BoxCoordinate: TypeAlias = Tuple[int, int, int]
 
@@ -61,14 +61,11 @@ def solution(junction_box_positions: List[BoxCoordinate], num_pairs: int) -> int
     return np.prod(sorted_circuit_lengths[:3])
 
 if __name__ == "__main__":
-    
     example_junction_box_positions = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    junction_box_positions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     num_pairs = 10
     expected_answer = 40
     test(expected_answer, solution, example_junction_box_positions, num_pairs)
 
+    junction_box_positions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     num_pairs = 1000
-    total = solution(junction_box_positions, num_pairs)
-    print("Puzzle Answer:", total)
+    solve(solution, junction_box_positions, num_pairs)

@@ -3,7 +3,7 @@ from typing import List
 
 from Day_03.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_03.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def get_max_joltage(bank: List[int]) -> int:
 
@@ -33,12 +33,9 @@ def solution(banks: List[List[int]]):
     return total_joltage
 
 if __name__ == "__main__":
-    
     example_banks = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    banks = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 357
     test(expected_answer, solution, example_banks)
 
-    total = solution(banks)
-    print("Puzzle Answer:", total)
+    banks = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    total = solve(solution, banks)
