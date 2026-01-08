@@ -4,7 +4,7 @@ import numpy as np
 
 from Day_13.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_13.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def to_int(x: float) -> int:
     return int(round(x, 0))
@@ -73,12 +73,9 @@ def solution(machines: List[Dict[str, Tuple[int, int]]]) -> int:
     return total_tokens
 
 if __name__ == "__main__":
-    
     example_machines = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    machines = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 480
     test(expected_answer, solution, example_machines)
 
-    total = solution(machines)
-    print("Puzzle Answer:", total)
+    machines = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, machines)

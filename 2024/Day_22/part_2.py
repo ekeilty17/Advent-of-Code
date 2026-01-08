@@ -5,7 +5,7 @@ import numpy as np
 from Day_22.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_22.load_input import load_input
 from Day_22.part_1 import compute_secret_number_sequence
-from utils.test import test
+from utils.solve import test, solve
 
 def solution(secret_numbers: List[int], N: int) -> int:
     sequences = np.array([compute_secret_number_sequence(secret_number, N-1) for secret_number in secret_numbers])
@@ -34,24 +34,21 @@ def solution(secret_numbers: List[int], N: int) -> int:
     return max_price
 
 if __name__ == "__main__":
-    
     very_small_example_secret_numbers = [123]
-    small_example_secret_numbers = [1, 2, 3, 2024]
-    example_secret_numbers = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    secret_numbers = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-    
     very_small_example_N = 10
     very_small_expected_answer = 6
     test(very_small_expected_answer, solution, very_small_example_secret_numbers, very_small_example_N)
 
+    small_example_secret_numbers = [1, 2, 3, 2024]
     small_example_N = 2000
     small_expected_answer = 23
     test(small_expected_answer, solution, small_example_secret_numbers, small_example_N)
 
+    example_secret_numbers = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     example_N = 2000
     expected_answer = 24
     test(expected_answer, solution, example_secret_numbers, example_N)
 
+    secret_numbers = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     N = 2000
-    total = solution(secret_numbers, N)
-    print("Puzzle Answer:", total)
+    solve(solution, secret_numbers, N)

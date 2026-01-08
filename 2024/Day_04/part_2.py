@@ -4,7 +4,7 @@ from numpy.typing import NDArray
 
 from Day_04.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_04.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def get_unique_orientations(pattern):
     pattern = pattern.copy()
@@ -46,22 +46,15 @@ def solution(crossword: NDArray[str], pattern: NDArray[str]) -> int:
     return count
 
 if __name__ == "__main__":
-    
-    example_crossword = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    crossword = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
-    example_pattern = np.array([
-        ['M', '.', 'S'],
-        ['.', 'A', '.'],
-        ['M', '.', 'S'],
-    ])
-    expected_answer = 9
-    test(expected_answer, solution, example_crossword, example_pattern)
-
     pattern = np.array([
         ['M', '.', 'S'],
         ['.', 'A', '.'],
         ['M', '.', 'S'],
     ])
-    total = solution(crossword, pattern)
-    print("Puzzle Answer:", total)
+
+    example_crossword = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
+    expected_answer = 9
+    test(expected_answer, solution, example_crossword, pattern)
+
+    crossword = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, crossword, pattern)

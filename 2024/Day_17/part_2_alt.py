@@ -5,7 +5,7 @@ from Day_17.const import DAY, INPUT_FILE_NAME
 from Day_17.const import EXAMPLE_INPUT_FILE_NAME_PART_2 as EXAMPLE_INPUT_FILE_NAME
 from Day_17.load_input import load_input
 from Day_17.part_1_alt import run_program, example_loop_func, loop_func
-from utils.test import test
+from utils.solve import test, solve
 
 
 def solution(
@@ -41,12 +41,9 @@ def solution(
     return register_A
 
 if __name__ == "__main__":
-    
     example_registers, example_program = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    registers, program = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 117440
-    test(expected_answer, solution, example_registers, example_program, example_loop_func)
+    test(expected_answer, solution, example_registers, example_program)
 
-    total = solution(registers, program, loop_func)
-    print("Puzzle Answer:", total)
+    registers, program = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, registers, program)

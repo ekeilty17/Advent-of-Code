@@ -5,7 +5,7 @@ from Day_11.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_11.load_input import load_input
 from Day_11.part_1 import apply_stone_rules
 from Day_11.part_1 import solution as part_1_solution
-from utils.test import test
+from utils.solve import test, solve
 
 MemoizationDict: TypeAlias = Dict[Tuple[int, int], int]
 
@@ -35,14 +35,11 @@ def solution(stones: List[int], num_blinks: int) -> int:
     return total
 
 if __name__ == "__main__":
-    
-    example_stones = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    stones = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     num_blinks = 75
 
+    example_stones = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     expected_answer = 65601038650482
     test(expected_answer, solution, example_stones, num_blinks)
 
-    total = solution(stones, num_blinks)
-    print("Puzzle Answer:", total)
+    stones = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, stones, num_blinks)

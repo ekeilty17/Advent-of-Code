@@ -4,7 +4,7 @@ from typing import List, Dict, Callable, Tuple
 from Day_17.const import DAY, INPUT_FILE_NAME
 from Day_17.const import EXAMPLE_INPUT_FILE_NAME_PART_2 as EXAMPLE_INPUT_FILE_NAME
 from Day_17.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def example_loop_func(registers: Dict[str, int]) -> Tuple[Dict[str, int], List[str]]:
     registers = {
@@ -40,12 +40,9 @@ def solution(registers: Dict[str, int], loop_func: Callable[[Dict[str, int]], Tu
     return ",".join([str(x) for x in output])
 
 if __name__ == "__main__":
-
     example_registers, example_program = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    registers, program = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = "5,7,3,0"
     test(expected_answer, solution, example_registers, example_loop_func)
-
-    total = solution(registers, loop_func)
-    print("Puzzle Answer:", total)
+    
+    registers, program = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, registers, loop_func)

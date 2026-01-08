@@ -6,8 +6,8 @@ from numpy.typing import NDArray
 
 from Day_20.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_20.load_input import load_input
-from utils.test import test
 from utils.grid import get_position_of_value, get_orthogonal_neighbor_indices
+from utils.solve import test, solve
 
 def Dijkstra(racetrack: NDArray[str], start: Tuple[int, int]) -> List[List[int]]:
 
@@ -80,14 +80,11 @@ def solution(racetrack: List[List[str]], picoseconds_to_save: int) -> int:
 
 
 if __name__ == "__main__":
-    
     example_racetrack = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    racetrack = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     example_picoseconds_to_save = 64
     expected_answer = 1
     test(expected_answer, solution, example_racetrack, example_picoseconds_to_save)
 
+    racetrack = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     picoseconds_to_save = 100
-    total = solution(racetrack, picoseconds_to_save)
-    print("Puzzle Answer:", total)
+    solve(solution, racetrack, picoseconds_to_save)

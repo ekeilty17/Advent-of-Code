@@ -3,7 +3,7 @@ from typing import List, Tuple, Dict, Set
 
 from Day_23.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_23.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def get_adjacency_list(edges: List[Tuple[str, str]]) -> Dict[str, Set[str]]:
     adj = {}
@@ -36,12 +36,9 @@ def solution(connections: List[Tuple[str, str]]) -> int:
     return len(t_triples)
 
 if __name__ == "__main__":
-    
     example_connections = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    connections = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 7
     test(expected_answer, solution, example_connections)
 
-    total = solution(connections)
-    print("Puzzle Answer:", total)
+    connections = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, connections)

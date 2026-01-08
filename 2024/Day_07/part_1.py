@@ -4,7 +4,7 @@ from itertools import product
 
 from Day_07.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_07.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def evaluate_operation(operand1: int, operation: str, operand2: int) -> int:
     if operation == "+":
@@ -34,13 +34,11 @@ def solution(equations: Dict[int, List[int]], allowed_operations: List[str]) -> 
     return total
 
 if __name__ == "__main__":
-    
-    example_equations = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    equations = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     allowed_operations = ["+", "*"]
 
+    example_equations = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     expected_answer = 3749
     test(expected_answer, solution, example_equations, allowed_operations)
 
-    total = solution(equations, allowed_operations)
-    print("Puzzle Answer:", total)
+    equations = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, equations, allowed_operations)

@@ -4,7 +4,7 @@ from typing import List, Tuple
 from Day_05.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_05.load_input import load_input
 from Day_05.graph import Graph
-from utils.test import test
+from utils.solve import test, solve
 
 def get_median(lst):
     return lst[len(lst)//2]
@@ -27,12 +27,9 @@ def solution(page_ordering_rules: List[Tuple[int, int]], page_sequences: List[Li
     return count
 
 if __name__ == "__main__":
-    
     example_page_ordering_rules, example_page_sequences = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    page_ordering_rules, page_sequences = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 143
     test(expected_answer, solution, example_page_ordering_rules, example_page_sequences)
 
-    total = solution(page_ordering_rules, page_sequences)
-    print("Puzzle Answer:", total)
+    page_ordering_rules, page_sequences = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, page_ordering_rules, page_sequences)

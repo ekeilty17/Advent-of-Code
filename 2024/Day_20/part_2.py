@@ -7,8 +7,8 @@ from numpy.typing import NDArray
 from Day_20.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_20.load_input import load_input
 from Day_20.part_1 import Dijkstra
-from utils.test import test
 from utils.grid import get_position_of_value
+from utils.solve import test, solve
 
 def manhattan_distance(x1, y1, x2, y2):
     return abs(x2 - x1) + abs(y2 - y1)
@@ -51,16 +51,13 @@ def solution(racetrack: List[List[str]], picoseconds_to_save: int, invisibility_
 
 
 if __name__ == "__main__":
-    
     example_racetrack = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    racetrack = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     example_picoseconds_to_save = 76
     example_invisibility_length = 20
     expected_answer = 3
     test(expected_answer, solution, example_racetrack, example_picoseconds_to_save, example_invisibility_length)
 
+    racetrack = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     picoseconds_to_save = 100
     invisibility_length = 20
-    total = solution(racetrack, picoseconds_to_save, invisibility_length)
-    print("Puzzle Answer:", total)
+    solve(solution, racetrack, picoseconds_to_save, invisibility_length)

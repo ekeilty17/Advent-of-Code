@@ -3,7 +3,7 @@ from typing import List
 
 from Day_02.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_02.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def is_safe(report: List[int]) -> bool:
 
@@ -34,12 +34,9 @@ def solution(reports: List[List[int]]) -> int:
     return count
 
 if __name__ == "__main__":
-    
     example_reports = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    reports = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 4
     test(expected_answer, solution, example_reports)
 
-    total = solution(reports)
-    print("Puzzle Answer:", total)
+    reports = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, reports)

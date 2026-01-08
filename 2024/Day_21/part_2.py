@@ -6,7 +6,7 @@ from numpy.typing import NDArray
 from Day_21.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_21.load_input import load_input
 from Day_21.part_1 import compute_complixity#, compute_directional_keypad_sequences
-from utils.test import test
+from utils.solve import test, solve
 
 def compute_directional_keypad_sequences(code: str, keypad: NDArray[str]) -> List[str]:
     keypad_indexes = {button: idx for idx, button in np.ndenumerate(keypad)}
@@ -69,14 +69,11 @@ def solution(codes: List[str], num_robots: int) -> int:
     return sum([compute_complixity(code, sequence) for code, sequence in zip(codes, shortest_sequences)])
 
 if __name__ == "__main__":
-    
     example_codes = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    codes = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     example_num_robots = 3
     expected_answer = 126384
     test(expected_answer, solution, example_codes, example_num_robots)
 
+    # codes = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     # num_robots = 25
-    # total = solution(codes, num_robots)
-    # print("Puzzle Answer:", total)
+    # solve(solution, codes, num_robots)

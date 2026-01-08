@@ -3,7 +3,7 @@ from typing import List
 
 from Day_11.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_11.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def apply_stone_rules(stone: int) -> List[int]:
     stone_str = str(stone)
@@ -31,14 +31,11 @@ def solution(stones: List[int], num_blinks: int) -> int:
     return len(stones)
 
 if __name__ == "__main__":
-    
-    example_stones = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    stones = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     num_blinks = 25
 
+    example_stones = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     expected_answer = 55312
     test(expected_answer, solution, example_stones, num_blinks)
 
-    total = solution(stones, num_blinks)
-    print("Puzzle Answer:", total)
+    stones = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, stones, num_blinks)

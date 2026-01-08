@@ -7,7 +7,7 @@ from Day_12.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_12.load_input import load_input
 from Day_12.part_1 import compute_regions, normalize_garden
 from utils.grid import get_offset_indices
-from utils.test import test
+from utils.solve import test, solve
 
 def compute_number_of_corners(garden: NDArray[str], regions_by_unique_ID: Dict[int, Set[Tuple[int, int]]]) -> Dict[int, int]:
     offsets = [
@@ -68,12 +68,9 @@ def solution(garden: List[List[str]]) -> int:
     return compute_total_fense_price(normalized_garden, regions_by_unique_ID)
 
 if __name__ == "__main__":
-    
     example_garden = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    garden = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 1206
     test(expected_answer, solution, example_garden)
 
-    total = solution(garden)
-    print("Puzzle Answer:", total)
+    garden = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, garden)

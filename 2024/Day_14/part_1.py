@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 from Day_14.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_14.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def compute_final_position(floor_shape: Tuple[int, int], initial_position: Tuple[int, int], velocity: Tuple[int, int], t: int=1) -> Tuple[int, int]:
     m, n = floor_shape
@@ -39,16 +39,13 @@ def solution(floor_shape: Tuple[int, int], initial_positions: List[Tuple[int, in
     return Q1 * Q2 * Q3 * Q4
 
 if __name__ == "__main__":
-    
     example_positions, example_velocities = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    positions, velocities = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     example_floor_shape = (11, 7)
     example_seconds = 100
     expected_answer = 12
     test(expected_answer, solution, example_floor_shape, example_positions, example_velocities, example_seconds)
 
+    positions, velocities = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     floor_shape = (101, 103)
     seconds = 100
-    total = solution(floor_shape, positions, velocities, seconds)
-    print("Puzzle Answer:", total)
+    solve(solution, floor_shape, positions, velocities, seconds)

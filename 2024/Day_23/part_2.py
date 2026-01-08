@@ -4,7 +4,7 @@ from typing import List, Tuple, Dict, Set
 from Day_23.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_23.load_input import load_input
 from Day_23.part_1 import get_adjacency_list
-from utils.test import test
+from utils.solve import test, solve
 
 def clique_induction(
         nodes: Set[int], 
@@ -36,12 +36,9 @@ def solution(connections: List[Tuple[str, str]]) -> str:
     return ",".join(sorted(CLIQUES[-2].pop()))
 
 if __name__ == "__main__":
-    
     example_connections = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    connections = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = "co,de,ka,ta"
     test(expected_answer, solution, example_connections)
 
-    total = solution(connections)
-    print("Puzzle Answer:", total)
+    connections = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, connections)

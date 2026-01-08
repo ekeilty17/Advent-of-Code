@@ -8,6 +8,7 @@ from Day_14.const import DAY, INPUT_FILE_NAME
 from Day_14.load_input import load_input
 from Day_14.part_1 import compute_final_position
 from utils.display import display_np_bool
+from utils.solve import solve
 
 def display_robot_positions(floor_shape: Tuple[int, int], positions: List[Tuple[int, int]]) -> str:
     floor = np.zeros(floor_shape, dtype=int)
@@ -77,7 +78,5 @@ def solution(floor_shape: Tuple[int, int], initial_positions: List[Tuple[int, in
 
 if __name__ == "__main__":
     positions, velocities = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     floor_shape = (101, 103)
-    total = solution(floor_shape, positions, velocities)
-    print("Puzzle Answer:", total)
+    solve(solution, floor_shape, positions, velocities)

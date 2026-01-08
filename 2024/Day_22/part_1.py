@@ -3,7 +3,7 @@ from typing import List
 
 from Day_22.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_22.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def mix(n: int, m: int) -> int:
     return n ^ m
@@ -37,19 +37,16 @@ def solution(secret_numbers: List[int], N: int) -> int:
     return sum(final_secret_numbers)
 
 if __name__ == "__main__":
-    
     small_example_secret_numbers = [123]
-    example_secret_numbers = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    secret_numbers = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-    
     small_example_N = 10
     small_expected_answer = 5908254
     test(small_expected_answer, solution, small_example_secret_numbers, small_example_N)
 
+    example_secret_numbers = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     example_N = 2000
     expected_answer = 37327623
     test(expected_answer, solution, example_secret_numbers, example_N)
 
+    secret_numbers = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     N = 2000
-    total = solution(secret_numbers, N)
-    print("Puzzle Answer:", total)
+    solve(solution, secret_numbers, N)

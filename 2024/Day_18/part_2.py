@@ -5,7 +5,7 @@ import numpy as np
 from Day_18.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_18.load_input import load_input
 from Day_18.part_1 import Dijkstra
-from utils.test import test
+from utils.solve import test, solve
 
 def linear_search(positions: List[Tuple[int]], memory_shape: Tuple[int, int]) -> Tuple[int, int]:
     uncorrupted_memory = np.full(memory_shape, ".")
@@ -41,14 +41,12 @@ def solution(positions: List[Tuple[int]], memory_shape: Tuple[int, int]) -> Tupl
     return binary_search(positions, memory_shape)
 
 if __name__ == "__main__":
-    
     example_positions = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    positions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     example_memory_shape = (7, 7)
     expected_answer = (6, 1)
     test(expected_answer, solution, example_positions, example_memory_shape)
 
+    positions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     memory_shape = (71, 71)
     total = solution(positions, memory_shape)
     print("Puzzle Answer:", total)

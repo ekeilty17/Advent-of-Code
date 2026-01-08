@@ -4,7 +4,7 @@ from typing import List, Tuple, Dict
 from Day_24.const import DAY, SMALL_EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_24.const import EXAMPLE_INPUT_FILE_NAME_PART_1 as EXAMPLE_INPUT_FILE_NAME
 from Day_24.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 class BinaryTree:
 
@@ -35,8 +35,6 @@ def propogate_wire_inputs(wire_inputs: Dict[str, bool], gates: Dict[str, Tuple[s
 
     wire_values = wire_inputs.copy()
     
-    
-    
     def dsf(output_wire, LHS_wire, operation, RHS_wire) -> None:
         if output_wire in wire_values:
             return
@@ -66,14 +64,12 @@ def solution(wire_inputs: Dict[str, bool], gates: Dict[str, Tuple[str, str, str]
 
 if __name__ == "__main__":
     small_example_wire_inputs, small_example_gates = load_input(Path(f"Day_{DAY:02d}/{SMALL_EXAMPLE_INPUT_FILE_NAME}"))
-    example_wire_inputs, example_gates = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    wire_inputs, gates = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     small_expected_answer = 4
     test(small_expected_answer, solution, small_example_wire_inputs, small_example_gates)
 
+    example_wire_inputs, example_gates = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     expected_answer = 2024
     test(expected_answer, solution, example_wire_inputs, example_gates)
 
-    total = solution(wire_inputs, gates)
-    print("Puzzle Answer:", total)
+    wire_inputs, gates = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, wire_inputs, gates)

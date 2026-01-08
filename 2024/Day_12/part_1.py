@@ -5,8 +5,8 @@ from numpy.typing import NDArray
 
 from Day_12.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_12.load_input import load_input
-from utils.test import test
 from utils.grid import get_orthogonal_neighbor_indices
+from utils.solve import test, solve
 
 # Essentially a DFS to get all connected components
 def compute_regions(garden: NDArray[str]) -> List[Set[Tuple[int, int]]]:
@@ -80,12 +80,9 @@ def solution(garden: List[List[str]]) -> int:
     return total
 
 if __name__ == "__main__":
-    
     example_garden = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    garden = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 1930
     test(expected_answer, solution, example_garden)
 
-    total = solution(garden)
-    print("Puzzle Answer:", total)
+    garden = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, garden)

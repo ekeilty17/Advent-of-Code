@@ -5,7 +5,7 @@ from numpy.typing import NDArray
 
 from Day_06.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_06.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def rotate_guard(guard: str) -> str:
     guards = ["^", ">", "v", "<"]
@@ -92,12 +92,9 @@ def solution(map: List[List[str]]) -> int:
 
 
 if __name__ == "__main__":
-    
     example_map = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    map = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 41
     test(expected_answer, solution, example_map)
 
-    total = solution(map)
-    print("Puzzle Answer:", total)
+    map = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, map)

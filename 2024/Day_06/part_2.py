@@ -5,7 +5,7 @@ import numpy as np
 from Day_06.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_06.load_input import load_input
 from Day_06.part_1 import compute_patrolled
-from utils.test import test
+from utils.solve import test, solve
 
 def solution(map: List[List[str]]) -> int:
     map = np.array(map)
@@ -36,12 +36,9 @@ def solution(map: List[List[str]]) -> int:
     return count
 
 if __name__ == "__main__":
-    
     example_map = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    map = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 6
     test(expected_answer, solution, example_map)
 
-    total = solution(map)
-    print("Puzzle Answer:", total)
+    map = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, map)

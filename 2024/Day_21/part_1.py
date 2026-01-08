@@ -5,7 +5,7 @@ from numpy.typing import NDArray
 
 from Day_21.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_21.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def compute_complixity(code: str, shortest_sequence: str) -> int:
     # print(len(shortest_sequence), int(code.replace("A", "")))
@@ -73,12 +73,9 @@ def solution(codes: List[str]) -> int:
     return sum([compute_complixity(code, sequence) for code, sequence in zip(codes, shortest_sequences)])
 
 if __name__ == "__main__":
-    
     example_codes = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    codes = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 126384
     test(expected_answer, solution, example_codes)
 
-    total = solution(codes)
-    print("Puzzle Answer:", total)
+    codes = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, codes)

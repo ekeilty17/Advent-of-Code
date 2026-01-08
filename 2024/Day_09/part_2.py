@@ -4,7 +4,7 @@ from typing import List, Tuple
 from Day_09.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_09.load_input import load_input
 from Day_09.part_1 import checksum
-from utils.test import test
+from utils.solve import test, solve
 
 def solution(disk_map: List[int | None], file_blocks: List[Tuple[int, int]], free_spaces: List[Tuple[int, int]]) -> int:
 
@@ -33,12 +33,9 @@ def solution(disk_map: List[int | None], file_blocks: List[Tuple[int, int]], fre
     return checksum(disk_map)
 
 if __name__ == "__main__":
-    
     example_disk_map, example_file_blocks, example_free_spaces = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    disk_map, file_blocks, free_spaces = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-    
     expected_answer = 2858
     test(expected_answer, solution, example_disk_map, example_file_blocks, example_free_spaces)
 
-    total = solution(disk_map, file_blocks, free_spaces)
-    print("Puzzle Answer:", total)
+    disk_map, file_blocks, free_spaces = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, disk_map, file_blocks, free_spaces)

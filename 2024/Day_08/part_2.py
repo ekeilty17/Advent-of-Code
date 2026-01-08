@@ -1,12 +1,11 @@
 from pathlib import Path
 from typing import List
 import numpy as np
-from numpy.typing import NDArray
 
 from Day_08.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_08.load_input import load_input
 from Day_08.part_1 import get_antenna_locations
-from utils.test import test
+from utils.solve import test, solve
 
 def solution(map: List[List[str]]) -> int:
     map = np.array(map)
@@ -33,12 +32,9 @@ def solution(map: List[List[str]]) -> int:
     return len(antinode_locations)
 
 if __name__ == "__main__":
-    
     example_map = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    map = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 34
     test(expected_answer, solution, example_map)
 
-    total = solution(map)
-    print("Puzzle Answer:", total)
+    map = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, map)

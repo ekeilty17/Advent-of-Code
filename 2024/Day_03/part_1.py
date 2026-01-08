@@ -5,7 +5,7 @@ import re
 from Day_03.const import DAY, INPUT_FILE_NAME
 from Day_03.const import EXAMPLE_INPUT_FILE_NAME_PART_1 as EXAMPLE_INPUT_FILE_NAME
 from Day_03.load_input import load_input
-from utils.test import test
+from utils.solve import test, solve
 
 def decode_instruction(corrupted_instruction: str) -> List[Tuple[int, int]]:
     pattern = r"mul\((\d+),(\d+)\)"
@@ -22,12 +22,9 @@ def solution(corrupted_instructions: List[str]) -> int:
     return total
 
 if __name__ == "__main__":
-    
     example_corrupted_instructions = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    corrupted_instructions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     expected_answer = 161
     test(expected_answer, solution, example_corrupted_instructions)
 
-    total = solution(corrupted_instructions)
-    print("Puzzle Answer:", total)
+    corrupted_instructions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, corrupted_instructions)

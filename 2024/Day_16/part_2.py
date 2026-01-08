@@ -7,8 +7,8 @@ from numpy.typing import NDArray
 from Day_16.const import DAY, SMALL_EXAMPLE_INPUT_FILE_NAME, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_16.load_input import load_input
 from Day_16.part_1 import get_maze_neighbors, compute_neighbor_weight, DIRECTIONS
-from utils.test import test
 from utils.grid import get_position_of_value
+from utils.solve import test, solve
 
 def Dijkstra(maze: NDArray[str], start: Tuple[int, int], start_direction: str) -> int:
 
@@ -96,16 +96,14 @@ def solution(maze: List[List[str]]) -> int:
     return len(unique_positions)
 
 if __name__ == "__main__":
-    
     small_example_maze = load_input(Path(f"Day_{DAY:02d}/{SMALL_EXAMPLE_INPUT_FILE_NAME}"))
-    example_maze = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    maze = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     small_expected_answer = 45
     test(small_expected_answer, solution, small_example_maze)
 
+    example_maze = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     expected_answer = 64
     test(expected_answer, solution, example_maze)
 
+    maze = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     total = solution(maze)
     print("Puzzle Answer:", total)

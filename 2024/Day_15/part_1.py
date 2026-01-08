@@ -6,8 +6,8 @@ from numpy.typing import NDArray
 from Day_15.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_15.const import SMALL_EXAMPLE_INPUT_FILE_NAME_PART_1 as SMALL_EXAMPLE_INPUT_FILE_NAME
 from Day_15.load_input import load_input
-from utils.test import test
 from utils.grid import get_position_of_value
+from utils.solve import test, solve
 
 def make_move(warehouse: NDArray[str], robot_position: Tuple[int, int], move: str) -> Tuple[int, int]:
     i, j = robot_position
@@ -71,16 +71,13 @@ def solution(warehouse: List[List[str]], moves: List[str]) -> int:
     return lanternfish_distance_score(warehouse, "O")
 
 if __name__ == "__main__":
-    
     small_example_warehouse, small_example_moves = load_input(Path(f"Day_{DAY:02d}/{SMALL_EXAMPLE_INPUT_FILE_NAME}"))
-    example_warehouse, example_moves = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    warehouse, moves = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     small_expected_answer = 2028
     test(small_expected_answer, solution, small_example_warehouse, small_example_moves)
 
+    example_warehouse, example_moves = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     expected_answer = 10092
     test(expected_answer, solution, example_warehouse, example_moves)
 
-    total = solution(warehouse, moves)
-    print("Puzzle Answer:", total)
+    warehouse, moves = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
+    solve(solution, warehouse, moves)

@@ -6,8 +6,8 @@ from numpy.typing import NDArray
 
 from Day_18.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_18.load_input import load_input
-from utils.test import test
 from utils.grid import get_orthogonal_neighbor_indices
+from utils.solve import test, solve
 
 def Dijkstra(memory: NDArray[str], start: Tuple[int, int]) -> List[List[int]]:
 
@@ -47,16 +47,13 @@ def solution(positions: List[Tuple[int]], memory_shape: Tuple[int, int], num_cor
     return dist[-1][-1]
 
 if __name__ == "__main__":
-    
     example_positions = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    positions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     example_memory_shape = (7, 7)
     example_num_corrupt_bits = 12
     expected_answer = 22
     test(expected_answer, solution, example_positions, example_memory_shape, example_num_corrupt_bits)
 
+    positions = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     memory_shape = (71, 71)
     num_corrupt_bits = 1024
-    total = solution(positions, memory_shape, num_corrupt_bits)
-    print("Puzzle Answer:", total)
+    solve(solution, positions, memory_shape, num_corrupt_bits)

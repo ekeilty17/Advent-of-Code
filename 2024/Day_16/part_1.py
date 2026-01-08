@@ -6,8 +6,8 @@ from numpy.typing import NDArray
 
 from Day_16.const import DAY, SMALL_EXAMPLE_INPUT_FILE_NAME, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_16.load_input import load_input
-from utils.test import test
 from utils.grid import get_position_of_value
+from utils.solve import test, solve
 
 DIRECTIONS = {
     "^": (-1, 0),
@@ -66,16 +66,14 @@ def solution(maze: List[List[str]]) -> int:
     return Dijkstra(maze, start_position, start_direction, end_position)
 
 if __name__ == "__main__":
-    
     small_example_maze = load_input(Path(f"Day_{DAY:02d}/{SMALL_EXAMPLE_INPUT_FILE_NAME}"))
-    example_maze = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
-    maze = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
-
     small_expected_answer = 7036
     test(small_expected_answer, solution, small_example_maze)
 
+    example_maze = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))
     expected_answer = 11048
     test(expected_answer, solution, example_maze)
 
+    maze = load_input(Path(f"Day_{DAY:02d}/{INPUT_FILE_NAME}"))
     total = solution(maze)
     print("Puzzle Answer:", total)
