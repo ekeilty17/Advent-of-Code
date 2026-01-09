@@ -19,9 +19,13 @@ python -m Day_XX.part_Y
 
 where `XX` is the the two digit day number (e.g. use `01` instead of `1`) and `Y` is the part number.
 
-## Structure of Day_X Code
+## Structure of Code
 
-Each `Day_XX` folder has the following files
+Each `Day_XX` has its own folder. Additionally, in there is `utils/` which contains some helper code used thoughout.
+
+### Day_XX
+
+Each `Day_XX` folder generally has the following files, although there is some variation
 - `const.py` - configuration constants
 - `example_input.txt` - example input
 - `input.txt` - challenge input
@@ -29,8 +33,6 @@ Each `Day_XX` folder has the following files
 - `part_1.py` - solution to part 1
 - `part_2.py` - solution to part 2
 - `README.md` - explanation of solutions
-
-Additionally, in there is `utils/` which contains some helpful code.
 
 ## Solution Checklist
 - [x] [Day 1](https://adventofcode.com/2024/day/1)
