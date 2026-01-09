@@ -7,6 +7,7 @@
 A bit of a silly one. Essentially, each `Sue` represents an incomplete set of correct criteria. The `ticker_tape` gives the full set of criteria.
 
 So we need to find a Sue such that
+
 $$
 \texttt{gift} \in \texttt{Sue} \implies \texttt{gift} \in \texttt{TickerTape}
 $$
@@ -14,7 +15,7 @@ $$
 This is exactly the definition of a subset $\texttt{Sue} \subseteq \texttt{TickerTape}$. Therefore, we can check
 
 $$
-\texttt{Sue} - \texttt{TickerTape} = \empty
+\texttt{Sue} - \texttt{TickerTape} = \emptyset
 $$
 
 The Sue for which the above is true, is the Sue who gave us the gift.
