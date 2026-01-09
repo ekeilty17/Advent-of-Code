@@ -7,6 +7,7 @@
 This really boils down to writing a function $x(t)$ which can calculate the distance traveled by each reindeer given a time.
 
 The first thing to notice is that $x(t)$ is cyclic, as each reindeer flies, then rests, and then repeats. Let's formalize. Let $t_{f}$ and $t_{r}$ be the flight and rest times, respectively. Therefore, the total cycle length is 
+
 $$
 \tau = t_{f} + t_{r}
 $$
@@ -17,7 +18,7 @@ $$
 x_{\tau}(t) = v \cdot \min(t_f, t)
 $$
 
-Now, the total distance is just the number of cycles + however far the reindeer gets on the last leg. The number of cycles can be calculated using $\lfloor \tfrac{t}{\tau} \rfloor$ (which is `//` in most programming languages). The time on the last leg is calculated using $t \bmod \tau$ (which is `%` in most programming languages).
+Now, the total distance is just the number of cycles + however far the reindeer gets on the last leg. The number of cycles can be calculated using $\left \lfloor \tfrac{t}{\tau} \right \rfloor$ (which is `//` in most programming languages). The time on the last leg is calculated using $t \bmod \tau$ (which is `%` in most programming languages).
 
 $$
 x(t) = \left \lfloor \tfrac{t}{\tau} \right \rfloor x_{\tau}(\tau) + x_{\tau}(t \bmod \tau)
