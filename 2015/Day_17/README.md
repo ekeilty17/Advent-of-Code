@@ -8,10 +8,11 @@ This is a variant of the classic [coin change](https://www.geeksforgeeks.org/dsa
 
 Let $N$ be the target number. Let $\texttt{Containers}$ be the list of containers of length $M$. Let $\texttt{Combinations}[i, n]$ be the number of ways of creating $n$ using containers $1, \ldots, i$.
 The Bellman equation is as follows. 
+
 $$
 \texttt{Combinations}[i, n] = \begin{cases}
-    0 &\quad\text{if } n < 0 \\[5pt]
-    1 &\quad\text{if } n = 0 \\[5pt]
+    0 &\quad\text{if } n < 0 \\
+    1 &\quad\text{if } n = 0 \\
     \sum_{n=0}^N \texttt{Combinations}[i-1, n-\texttt{Containers}[i]] &\quad\text{otherwise}
 \end{cases}
 $$
