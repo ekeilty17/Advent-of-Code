@@ -13,6 +13,7 @@ There are two keys to this problem. The first is translating the manual row and 
 ```
 
 Assuming we are indexing at `1`, then the `height` turns out to be `row + col - 1`. Now, we can calculate the triangle number at a given height, which is the well-known [sum of positive integers formula](https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF).
+
 $$
 T(n) = \sum_{k=1}^n = \frac{n(n+1)}{2}
 $$
@@ -27,12 +28,10 @@ $$
 
 where $N$ is very large.
 
-This is also a [well-known problem](https://en.wikipedia.org/wiki/Modular_exponentiation), and the simple algorithm is intuitive. Start with $\text{result} = a$, and iteratively compute 
+This is also a [well-known problem](https://en.wikipedia.org/wiki/Modular_exponentiation), and the simple algorithm is intuitive. Start with $\text{result} \leftarrow a$, and iteratively compute 
+
 $$
-\begin{align*}
-    &\text{result} \leftarrow a \\
-    &\text{result} \leftarrow \text{result} \cdot b \mod m
-\end{align*}
+\text{result} \leftarrow \text{result} \cdot b \mod m
 $$
 
 The trick being computing $\bmod$ in every iteration rather than at the end of the exponentiation. This keeps all of the intermediary numbers small.
