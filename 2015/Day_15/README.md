@@ -6,10 +6,8 @@
 
 I took a brute force approach. Since we know that the total number of teaspoons is exactly `100`, I just get all possible combinations of numbers which sum to `100`. Let $\boldsymbol{x}$ be the teaspoon amounts per ingredient. Let $P$ be the matrix of properties. Then the total score is
 
-$$
-\boldsymbol{b} := P \boldsymbol{x} \\[5pt]
-\texttt{score}(\boldsymbol{x}; P) = \Pi_i \max(0, b_i)
-$$
+$$\boldsymbol{b} := P \boldsymbol{x}$$
+$$\texttt{score}(\boldsymbol{x}; P) = \prod_i \max(0, b_i)$$
 
 And we just find the maximum score.
 
