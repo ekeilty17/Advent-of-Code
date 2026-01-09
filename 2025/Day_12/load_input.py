@@ -5,7 +5,7 @@ from numpy.typing import NDArray
 import re
 
 PresentShape: TypeAlias = NDArray[np.bool_]
-Region: TypeAlias = Tuple[int, int, List[int]]
+Region: TypeAlias = Tuple[Tuple[int, int], List[int]]
 
 def load_input(input_path: Path) -> Tuple[List[PresentShape], List[Region]]:
     lines = input_path.read_text().splitlines()
@@ -40,4 +40,4 @@ def parse_region(line: List[str]) -> Region:
     W = int(W_str)
     L = int(L_str)
     quantity = [int(x) for x in quantity_str.strip().split(" ")]
-    return W, L, quantity
+    return (W, L), quantity
