@@ -1,4 +1,4 @@
-shop = {
+SHOP = {
   "weapons": [
     { "name": "Dagger",     "cost": 8,  "damage": 4, "armor": 0 },
     { "name": "Shortsword", "cost": 10, "damage": 5, "armor": 0 },
