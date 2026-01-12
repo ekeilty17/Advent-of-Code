@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List
+from typing import List, Tuple
 import heapq
 import math
 
@@ -7,10 +7,10 @@ from Day_24.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
 from Day_24.load_input import load_input
 from utils.solve import test, solve
 
-def get_entanglement(group):
+def get_entanglement(group: List[int]) -> int:
     return math.prod(group)
 
-def equal_weight_partition(weights: List[int], num_groups: int):
+def equal_weight_partition(weights: List[int], num_groups: int) -> Tuple[List[int], ...]:
     if num_groups == 1:
         return [list(sorted(weights, reverse=True))]
     
