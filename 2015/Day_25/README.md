@@ -37,6 +37,3 @@ $$
 The trick being computing $\bmod$ in every iteration rather than at the end of the exponentiation. This keeps all of the intermediary numbers small.
 
 There is an even [faster modular exponentiation algorithm](https://courses.cs.washington.edu/courses/cse311/21sp/resources/reference-modular-exponentiation.pdf) which takes advantage of the fact that computers use binary. But I have not implemented this here as it was not necessary.
-
-## Part 2 
-
