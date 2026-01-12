@@ -1,7 +1,7 @@
 import time
-from typing import Callable
+from typing import Callable, Any, Tuple
 
-def _format_time(seconds):
+def _format_time(seconds: int) -> str:
     units = [
         (1, "s"),
         (1e-3, "ms"),
@@ -14,7 +14,7 @@ def _format_time(seconds):
 
     return f"{seconds / 1e-9:.3g} ns"
 
-def solve(solution_func: Callable, *solution_args) -> int:
+def solve(solution_func: Callable, *solution_args: Tuple[Any]) -> int:
     start = time.time()
     answer = solution_func(*solution_args)
     end = time.time()
@@ -26,7 +26,7 @@ def solve(solution_func: Callable, *solution_args) -> int:
     return answer
 
 
-def test(expected_answer, solution_func: Callable, *solution_args) -> bool:
+def test(expected_answer: Any, solution_func: Callable, *solution_args: Tuple[Any]) -> bool:
     actual_answer = solution_func(*solution_args)
 
     if actual_answer == expected_answer:
