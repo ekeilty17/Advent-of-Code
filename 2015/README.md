@@ -53,13 +53,13 @@ Each `Day_XX` folder generally has the following files, although there is some v
 - [x] [Day 16](https://adventofcode.com/2015/day/16)
 - [x] [Day 17](https://adventofcode.com/2015/day/17)
 - [x] [Day 18](https://adventofcode.com/2015/day/18)
-- [ ] [Day 19](https://adventofcode.com/2015/day/19) (part 1 complete)
+- [x] [Day 19](https://adventofcode.com/2015/day/19)
 - [x] [Day 20](https://adventofcode.com/2015/day/20)
-- [ ] [Day 21](https://adventofcode.com/2015/day/21)
-- [ ] [Day 22](https://adventofcode.com/2015/day/22)
+- [x] [Day 21](https://adventofcode.com/2015/day/21)
+- [x] [Day 22](https://adventofcode.com/2015/day/22)
 - [x] [Day 23](https://adventofcode.com/2015/day/23)
-- [ ] [Day 24](https://adventofcode.com/2015/day/24)
-- [ ] [Day 25](https://adventofcode.com/2015/day/25) (part 1 complete)
+- [x] [Day 24](https://adventofcode.com/2015/day/24)
+- [x] [Day 25](https://adventofcode.com/2015/day/25)
 
 ### Problems to Look at Again
 - **Day 10**: There should be a dynamic-programming style argument, since Look-and-Say numbers are recursive
