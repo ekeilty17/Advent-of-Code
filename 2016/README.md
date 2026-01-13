@@ -4,6 +4,12 @@ This is my [Advent of Code 2016](https://adventofcode.com/2016) repository. I wi
 
 ## How to Run
 
+```
+pip install -r requirements.txt
+```
+
+I try my best not to use outside packages, but I use numpy for all of the grid-style problems.
+
 All code is designed to be run at root of each year. In this case, inside the top level of `2016/`. Each day has `part_1.py` and `part_2.py`. For example,
 
 ```

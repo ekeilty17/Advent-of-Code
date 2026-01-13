@@ -8,7 +8,7 @@ This is my [Advent of Code 2025](https://adventofcode.com/2025) repository. I wi
 pip install -r requirements.txt
 ```
 
-I try my best not to use outside packages, but I didn't feel like implementing integer programming, for example.
+I try my best not to use outside packages, but I use numpy for all of the grid-style problems. Also, this year required an integer programming solver, which I did not feel like implementing by hand.
 
 All code is designed to be run at root of each year. In this case, inside the top level of `2025/`. Each day has `part_1.py` and `part_2.py`. For example,
 
