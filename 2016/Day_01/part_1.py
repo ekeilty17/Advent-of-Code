@@ -9,13 +9,13 @@ from utils.solve import test, solve
 def solution(instructions: List[int]) -> int:
     instructions = [-x if i % 2 else x for i, x in enumerate(instructions)]
     
-    blocks = 0
+    blocks = [0, 0]
     orientation = 1
-    for instruction in instructions:
-        blocks += orientation * instruction
+    for i, instruction in enumerate(instructions):
+        blocks[i%2] += orientation * instruction
         orientation *= 1 if instruction > 0 else -1
     
-    return abs(blocks)
+    return sum(abs(b) for b in blocks)
 
 if __name__ == "__main__":
     example_instructions = load_input(Path(f"Day_{DAY:02d}/{EXAMPLE_INPUT_FILE_NAME}"))

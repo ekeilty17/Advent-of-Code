@@ -19,7 +19,7 @@ def solution(instructions: List[int]) -> int:
         for _ in range(abs(instruction)):
             blocks[i%2] += direction
             if tuple(blocks) in visited:
-                return sum([abs(b) for b in blocks])
+                return sum(abs(b) for b in blocks)
             visited.add(tuple(blocks))
         
         orientation *= 1 if instruction > 0 else -1

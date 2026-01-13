@@ -11,9 +11,9 @@ Let's define going North and going East as moving in the positive direction. If 
 instructions = [-x if i % 2 else x for i, x in enumerate(instructions)]
 ```
 
-This allows for an elegant solution. Because we are using the [Traxicab distance](https://en.wikipedia.org/wiki/Taxicab_geometry) `blocks = abs(horizontal_blocks) + abs(vertical_blocks)`, we don't have to split up horizontal and vertical displacement into 2 case. We just need to maintain the variable `orientation`, which is `+1` if we are facing North or East, and `-1` if we are facing South or West. Now, the direction we move is equal to the relative direction given by the sign of the instruction times our orientation
+Let `blocks = [0, 0]` where `blocks[0]` is the horizontal displacement and `blocks[1]` is the vertical displacement. Additionally, we need to maintain the variable `orientation`, which is `+1` if we are facing North or East, and `-1` if we are facing South or West. Now, the direction we move is equal to the relative direction given by the sign of the instruction times our orientation
 ```python
-blocks += orientation * instruction
+blocks[i%2] += orientation * instruction
 ```
 
 And we update the orientation similarly
@@ -23,11 +23,10 @@ orientation *= 1 if instruction > 0 else -1
 
 ## Part 2 
 
-In part 2 we modify part 1 to keep track of both the horizontal and vertical displacement. Now, `blocks = [0, 0]` and we use `blocks[i%2]` to index horizontal/vertical displacements.
-
-Another difference is instead of doing `blocks[i%2] += orientation * instruction`, we determine the direction `direction = 1 if orientation * instruction > 0 else -1` and then step one block at a time
+Part 2 is similar to part 1, except we have to step one by one through each instruction, i.e.
 ```python
+direction = 1 if orientation * instruction > 0 else -1
 for _ in range(abs(instruction)):
     blocks[i%2] += direction
 ```
-keeping track of each block that we have visited using a set. If we ever repeat, then we return.
+Using a [set](https://en.wikipedia.org/wiki/Set_(abstract_data_type)) to store all past locations, at each step we check if we've visited `blocks` before. If we find a duplicate, then we return.
