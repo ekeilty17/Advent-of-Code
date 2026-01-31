@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import List, Tuple, Dict
 
 from Day_23.const import DAY, EXAMPLE_INPUT_FILE_NAME, INPUT_FILE_NAME
-from Day_23.load_input import load_input
+from Day_12.load_input import load_input
 from Day_12.opcodes import OPCODES
 from utils.solve import test, solve
 
