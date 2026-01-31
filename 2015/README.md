@@ -27,7 +27,7 @@ where `XX` is the the two digit day number (e.g. use `01` instead of `1`) and `Y
 
 ## Structure of Code
 
-Each `Day_XX` has its own folder. Additionally, in there is `utils/` which contains some helper code used thoughout.
+Each `Day_XX` has its own folder. Additionally, in there is `utils/` which contains some helper code used throughout.
 
 ### Day_XX
 
