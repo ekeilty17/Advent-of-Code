@@ -1,6 +1,6 @@
-# Day XX: ??
+# Day 3: Spiral Memory
 
-[Problem Link](https://adventofcode.com/2017/day/XX)
+[Problem Link](https://adventofcode.com/2017/day/3)
 
 ## Part 1
 
