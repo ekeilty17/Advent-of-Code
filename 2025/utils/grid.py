@@ -3,6 +3,8 @@ import numpy as np
 from numpy.typing import NDArray
 
 def get_offset_indices(shape: Tuple[int, int], i: int, j: int, offsets: List[Tuple[int, int]]) -> List[Tuple[int, int]]:
+    i = i % shape[0]
+    j = j % shape[1]
     neighbor_indexes = [(i+a, j+b) for a, b in offsets]
     neighbor_indexes = [(a, b) for a, b in neighbor_indexes if 0 <= a < shape[0] and 0 <= b < shape[1]]
     return neighbor_indexes
