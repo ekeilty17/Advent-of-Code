@@ -5,9 +5,8 @@ def solution() -> int:
     
     d = 0
     while d < d_lower_bound:
-        d <<= 1
-        d += 1
-        d <<= 1
+        d <<= 2
+        d += 2
     
     a = d - d_lower_bound
     return a
