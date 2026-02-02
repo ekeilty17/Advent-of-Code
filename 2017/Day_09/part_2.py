@@ -1,5 +1,4 @@
 from pathlib import Path
-from typing import List
 
 from Day_09.const import DAY, INPUT_FILE_NAME
 from Day_09.load_input import load_input
