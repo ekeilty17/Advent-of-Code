@@ -29,7 +29,7 @@ def knot_hash(string: str) -> str:
     for _ in range(64):
         numbers, i, skip = knot_hash_round(numbers, lengths, i, skip)
 
-    dense_numbers = compute_dense_hash(numbers, )
+    dense_numbers = compute_dense_hash(numbers, 16)
 
     hex_string = ''.join([format(n, '02x') for n in dense_numbers])
     return hex_string
