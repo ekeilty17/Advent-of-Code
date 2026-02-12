@@ -25,5 +25,5 @@ OPCODES = {
     "add": add,
     "mul": mul,
     "mod": mod,
-    "jgz": jgz
+    "jgz": jgz,
 }
