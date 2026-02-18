@@ -2,6 +2,58 @@
 
 [Problem Link](https://adventofcode.com/2018/day/4)
 
+## Parsing the Input
+
+The input was annoying to parse. Since there are lines such as
+```
+[1518-11-01 00:05] falls asleep
+[1518-11-01 00:25] wakes up
+```
+you can't parse each line independently, you have to keep track of which guard and which shift came last. All of the logic is implemented in `parse_guard_shifts_and_sleep_intervals()` in `part_1.py`. This function returns a dictionary which maps guards to their sleep intervals in each shift. 
+
+Using the example given in the problem
+```
+Date   ID   Minute
+            000000000011111111112222222222333333333344444444445555555555
+            012345678901234567890123456789012345678901234567890123456789
+11-01  #10  .....####################.....#########################.....
+11-02  #99  ........................................##########..........
+11-03  #10  ........................#####...............................
+11-04  #99  ....................................##########..............
+11-05  #99  .............................................##########.....
+```
+
+This is converted to
+
+```python
+sleep_intervals_by_shifts_by_gaurds = {
+    10: {
+        '1518-11-01 00:00': [
+            ('1518-11-01 00:05', '1518-11-01 00:25'),
+            ('1518-11-01 00:30', '1518-11-01 00:55')
+        ],
+        '1518-11-03 00:05': [
+            ('1518-11-03 00:24', '1518-11-03 00:29')
+        ]
+    },
+    99: {
+        '1518-11-01 23:58': [
+            ('1518-11-02 00:40', '1518-11-02 00:50')
+        ],
+        '1518-11-04 00:02': [
+            ('1518-11-04 00:36', '1518-11-04 00:46')
+        ],
+        '1518-11-05 00:03': [
+            ('1518-11-05 00:45', '1518-11-05 00:55')
+        ]
+    }
+}
+```
+
+except the strings are `datetime` objects.
+
+However, this data structure is not really useful to solve the problem. It's just a more rigorous encoding of the problem input.
+
 ## Unified Data Structure
 
 There are probably many different solutions, but I was looking for a unified data structure that could solve both parts. I believe the following was the intended solution.

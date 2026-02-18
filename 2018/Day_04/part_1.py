@@ -9,7 +9,7 @@ from utils.solve import test, solve
 
 Shifts: TypeAlias = Dict[datetime, List[Tuple[datetime, datetime]]]
 
-def parse_guard_sleep_periods(chronology: List[str]) -> Dict[int, Shifts]:
+def parse_guard_shifts_and_sleep_intervals(chronology: List[str]) -> Dict[int, Shifts]:
     guard_pattern = r"\[(.+)\] Guard #(\d+) begins shift"
     sleep_pattern = r"\[(.+)\] falls asleep"
     wake_pattern = r"\[(.+)\] wakes up"
@@ -21,16 +21,16 @@ def parse_guard_sleep_periods(chronology: List[str]) -> Dict[int, Shifts]:
     sleep_dt = None
     wake_dt = None
 
-    shifts_by_gaurds = {}
+    sleep_intervals_by_shifts_by_gaurds = {}
     for event in sorted(chronology):
         m = re.fullmatch(guard_pattern, event)
         if m:
             start_shift_dt = datetime.strptime(m.group(1), dt_pattern)
             guard = int(m.group(2))
             
-            if guard not in shifts_by_gaurds:
-                shifts_by_gaurds[guard] = {}
-            shifts_by_gaurds[guard][start_shift_dt] = []
+            if guard not in sleep_intervals_by_shifts_by_gaurds:
+                sleep_intervals_by_shifts_by_gaurds[guard] = {}
+            sleep_intervals_by_shifts_by_gaurds[guard][start_shift_dt] = []
             continue
 
         m = re.fullmatch(sleep_pattern, event)
@@ -43,17 +43,17 @@ def parse_guard_sleep_periods(chronology: List[str]) -> Dict[int, Shifts]:
             wake_dt = datetime.strptime(m.group(1), dt_pattern)
             if wake_dt < sleep_dt:
                 raise Exception(f"Failed to parse event: {event}")
-            shifts_by_gaurds[guard][start_shift_dt].append((sleep_dt, wake_dt))
+            sleep_intervals_by_shifts_by_gaurds[guard][start_shift_dt].append((sleep_dt, wake_dt))
             continue
         
         raise Exception(f"Failed to parse event: {event}")
 
-    return shifts_by_gaurds
+    return sleep_intervals_by_shifts_by_gaurds
 
-def compute_total_sleep_time_by_minute_by_guard(shifts_by_gaurds: Dict[int, Shifts]) -> Dict[int, List[int]]:
+def compute_total_sleep_time_by_minute_by_guard(sleep_intervals_by_shifts_by_gaurds: Dict[int, Shifts]) -> Dict[int, List[int]]:
     total_sleep_time_by_minute_by_guard = {}
 
-    for guard, shifts in shifts_by_gaurds.items():
+    for guard, shifts in sleep_intervals_by_shifts_by_gaurds.items():
         minute_number_sleep_frequency = [0] * 60
         for sleep_intervals in shifts.values():
             for dt1, dt2 in sleep_intervals:
@@ -67,8 +67,8 @@ def compute_total_sleep_time_by_minute_by_guard(shifts_by_gaurds: Dict[int, Shif
     return total_sleep_time_by_minute_by_guard
 
 def solution(chronology: List[str]) -> int:
-    shifts_by_gaurds = parse_guard_sleep_periods(chronology)    
-    total_sleep_time_by_minute_by_guard = compute_total_sleep_time_by_minute_by_guard(shifts_by_gaurds)
+    sleep_intervals_by_shifts_by_gaurds = parse_guard_shifts_and_sleep_intervals(chronology)
+    total_sleep_time_by_minute_by_guard = compute_total_sleep_time_by_minute_by_guard(sleep_intervals_by_shifts_by_gaurds)
 
     sleepiest_guard, _ = max(total_sleep_time_by_minute_by_guard.items(), key=lambda t: sum(t[1]))
     max_minute, _ = max(enumerate(total_sleep_time_by_minute_by_guard[sleepiest_guard]), key=lambda t: t[1])
