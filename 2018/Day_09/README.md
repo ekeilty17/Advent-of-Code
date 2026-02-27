@@ -18,6 +18,6 @@ Now, instead of maintaining the `circle` pointer, we can just call `deque.rotate
 
 ## Part 2 Alternative Solution
 
-It felt a bit like cheating to just use an external library to solve the problem. So I also implemented a [Circular Doubly Linked List](https://www.geeksforgeeks.org/dsa/introduction-to-circular-doubly-linked-list/) by hand. So the nodes form a loop with `prev` and `next` pointers. Then I have a `root` pointer which points at the start of the list. This made implementing the `.rotate()` function very easy. See the implementation in `part_2_alt.py`.
+It felt a bit like cheating to just use an external library to solve the problem. So I also implemented a [Circular Doubly Linked List](https://www.geeksforgeeks.org/dsa/introduction-to-circular-doubly-linked-list/) by hand. Each element of the list has a `prev` and `next` pointer which points to the left/right neighbors, respectively. The first and last element also point to each other so that the list forms a **loop**. Then I have a `root` pointer which points at the start of the list. This made implementing the `.rotate()` function very easy. See the implementation in `part_2_alt.py`.
 
 Probably because `deque` is using C on the backend, it's about 1 order of magnitude faster than my hand-solution. But asymptotically I think they are equivalent.
